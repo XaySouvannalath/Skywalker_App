@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.ge.skywalker">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".Skywalker"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/chapterTheme">
+        <activity
+            android:name=".MainActivity"
+            android:noHistory="true" />
+        <activity android:name=".DatabaseManagement" />
+        <activity
+            android:name=".act_CourseTypes"
+            android:label="ຈັດການຂໍ້ມູນປະເພດຫຼັກສູດ"
+            android:theme="@style/addDataDialog" />
+        <activity
+            android:name=".Show_CourseTypes"
+            android:noHistory="true" />
+        <activity android:name=".Tests" />
+        <activity android:name=".TestDetails" />
+        <activity
+            android:name=".Ac_Courses"
+            android:theme="@style/coursesTheme" />
+        <activity android:name=".Ac_Coursetypes" />
+        <activity
+            android:name=".Ac_Chapters"
+            android:theme="@style/chapterTheme" />
+        <activity android:name=".Ac_Headings" />
+        <activity
+            android:name=".Ac_Home"
+            android:label="@string/title_activity_ac__home"
+            android:theme="@style/HomeTheme" />
+        <activity android:name=".add_heading_activity" />
+        <activity android:name=".Heading.Ac_Headings2" />
+        <activity android:name=".Ac_Descriptions" />
+        <activity
+            android:name=".TestRecycleView"
+            android:theme="@style/HomeTheme" />
+        <activity
+            android:name=".Skybase_Home"
+            android:label="@string/title_activity_ac__home"
+            android:theme="@style/HomeTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Client_Course"
+            android:theme="@style/HomeTheme" />
+        <activity
+            android:name=".Client_Chapter"
+            android:theme="@style/HomeTheme" />
+        <activity
+            android:name=".Client_Content"
+            android:theme="@style/HomeTheme" />
+        <activity
+            android:name=".Client_Description"
+            android:theme="@style/HomeTheme" />
+        <activity android:name=".Quiz.Quiz_Home"
+            android:theme="@style/HomeTheme"
+            ></activity>
+    </application>
+
+</manifest>
