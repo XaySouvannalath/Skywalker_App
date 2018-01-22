@@ -8,7 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.example.ge.skywalker.Quiz.Quiz_Home;
+import com.example.ge.skywalker.Quiz.Quiz_Home_Activity;
 
 public class Skybase_Home extends AppCompatActivity {
 LinearLayout lyhome;
@@ -62,7 +62,7 @@ LinearLayout lyhome;
     }
 
     public void gotoquiz(View view) {
-        Intent i = new Intent(this, Quiz_Home.class);
+        Intent i = new Intent(this, Quiz_Home_Activity.class);
         startActivity(i);
     }
 }

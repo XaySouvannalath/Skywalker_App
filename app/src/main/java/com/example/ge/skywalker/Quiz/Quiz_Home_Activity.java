@@ -5,12 +5,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.ge.skywalker.Ac_Coursetypes;
 import com.example.ge.skywalker.R;
 import com.example.ge.skywalker.Skybase_Home;
 
-public class Quiz_Home extends AppCompatActivity {
+public class Quiz_Home_Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,5 +43,10 @@ public class Quiz_Home extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.home_menu, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    public void gotolinuxquiz(View view) {
+        Intent i = new Intent(this, Quiz_Linux.class);
+        startActivity(i);
     }
 }

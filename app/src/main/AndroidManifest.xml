@@ -66,9 +66,11 @@
         <activity
             android:name=".Client_Description"
             android:theme="@style/HomeTheme" />
-        <activity android:name=".Quiz.Quiz_Home"
-            android:theme="@style/HomeTheme"
-            ></activity>
+        <activity
+            android:name=".Quiz.Quiz_Home_Activity"
+            android:theme="@style/HomeTheme" />
+        <activity android:name=".Quiz.Quiz_Linux" />
+        <activity android:name=".Quiz.Quiz_Score_Activity"></activity>
     </application>
 
 </manifest>
