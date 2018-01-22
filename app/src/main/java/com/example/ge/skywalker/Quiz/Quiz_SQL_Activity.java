@@ -10,8 +10,8 @@ import android.widget.Toast;
 
 import com.example.ge.skywalker.R;
 
-public class Quiz_Linux extends AppCompatActivity {
-    private Quiz_Linux_Bank mQuestionLibrary = new Quiz_Linux_Bank();
+public class Quiz_SQL_Activity extends AppCompatActivity {
+    private Quiz_SQL_Bank mQuestionLibrary = new Quiz_SQL_Bank();
 
     private TextView mScoreView;   // view for current total score
     private TextView mQuestionView;  //current question to answer
@@ -23,12 +23,10 @@ public class Quiz_Linux extends AppCompatActivity {
     private String mAnswer;  // correct answer for question in mQuestionView
     private int mScore = 0;  // current total score
     private int mQuestionNumber = 0; // current question number
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quiz__linux);
-        // setup screen for the first question with four alternative to answer
+        setContentView(R.layout.activity_quiz__sql_);
         mScoreView = (TextView)findViewById(R.id.score);
         mQuestionView = (TextView)findViewById(R.id.question);
         mButtonChoice1 = (Button)findViewById(R.id.choice1);
@@ -36,12 +34,11 @@ public class Quiz_Linux extends AppCompatActivity {
         mButtonChoice3 = (Button)findViewById(R.id.choice3);
         mButtonChoice4 = (Button)findViewById(R.id.choice4);
 
-        mQuestionLibrary.initQuestions(getApplicationContext());
+        mQuestionLibrary.initQuestions_sql(getApplicationContext());
         updateQuestion();
         // show current total score for the user
         updateScore(mScore);
     }
-
     private void updateQuestion(){
         // check if we are not outside array bounds for questions
         if(mQuestionNumber<mQuestionLibrary.getLength() ){
@@ -56,8 +53,8 @@ public class Quiz_Linux extends AppCompatActivity {
             mQuestionNumber++;
         }
         else {
-            Toast.makeText(Quiz_Linux.this, "It was the last question!", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(Quiz_Linux.this, Quiz_Score_Activity.class);
+            Toast.makeText(Quiz_SQL_Activity.this, "It was the last question!", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(Quiz_SQL_Activity.this, Quiz_Score_Activity.class);
             intent.putExtra("score", mScore); // pass the current score to the second screen
             startActivity(intent);
         }
@@ -74,9 +71,9 @@ public class Quiz_Linux extends AppCompatActivity {
         // if the answer is correct, increase the score
         if (answer.getText().equals(mAnswer)){
             mScore = mScore + 1;
-            Toast.makeText(Quiz_Linux.this, "Correct!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Quiz_SQL_Activity.this, "Correct!", Toast.LENGTH_SHORT).show();
         }else
-            Toast.makeText(Quiz_Linux.this, "Wrong!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Quiz_SQL_Activity.this, "Wrong!", Toast.LENGTH_SHORT).show();
         // show current total score for the user
         updateScore(mScore);
         // once user answer the question, we move on to the next one, if any

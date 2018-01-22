@@ -39,7 +39,7 @@ public class Quiz_Score_Activity extends AppCompatActivity {
     }
 
     public void onRepeatClick(View view) {
-        Intent intent = new Intent(this, Quiz_Linux.class);
+        Intent intent = new Intent(this, Quiz_Linux_Activity.class);
         startActivity(intent);
     }
 }

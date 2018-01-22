@@ -46,7 +46,12 @@ public class Quiz_Home_Activity extends AppCompatActivity {
     }
 
     public void gotolinuxquiz(View view) {
-        Intent i = new Intent(this, Quiz_Linux.class);
+        Intent i = new Intent(this, Quiz_Linux_Activity.class);
+        startActivity(i);
+    }
+
+    public void gotosqlquiz(View view) {
+        Intent i = new Intent(this, Quiz_SQL_Activity.class);
         startActivity(i);
     }
 }
