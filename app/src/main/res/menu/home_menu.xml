@@ -13,17 +13,23 @@
 
 
 </item>
-    <item android:id="@+id/action_setting"
+    <item
+        android:id="@+id/action_setting"
         android:icon="@mipmap/ic_settings_white_24dp"
-        android:title="Setting"
         android:onClick="gosetting"
+        android:title="ຕັ້ງຄ່າ"
         app:showAsAction="never"
 
         ></item>
-    <item android:id="@+id/action_login"
+    <item
+        android:id="@+id/action_login"
         android:icon="@mipmap/ic_settings_white_24dp"
-        android:title="Log In"
+        android:title="ອອກຈາກລະບົບ"
+
         app:showAsAction="never"
 
         ></item>
+    <item
+        android:id="@+id/action_about"
+        android:title="ກ່ຽວກັບ" />
 </menu>

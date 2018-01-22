@@ -5,6 +5,11 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
         android:name=".Skywalker"
         android:allowBackup="true"
@@ -47,13 +52,7 @@
         <activity
             android:name=".Skybase_Home"
             android:label="@string/title_activity_ac__home"
-            android:theme="@style/HomeTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/HomeTheme" />
         <activity
             android:name=".Client_Course"
             android:theme="@style/HomeTheme" />
@@ -71,7 +70,25 @@
             android:theme="@style/HomeTheme" />
         <activity android:name=".Quiz.Quiz_Linux_Activity" />
         <activity android:name=".Quiz.Quiz_Score_Activity" />
-        <activity android:name=".Quiz.Quiz_SQL_Activity"></activity>
+        <activity android:name=".Quiz.Quiz_SQL_Activity" />
+        <activity
+            android:name=".UserLogin.Login"
+            android:theme="@style/HomeTheme" />
+        <activity
+            android:name=".UserLogin.Register"
+            android:theme="@style/HomeTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".LoginPassword"
+            android:theme="@style/HomeTheme"
+            />
+        <activity android:name=".About"
+            android:theme="@style/HomeTheme"
+            ></activity>
     </application>
 
 </manifest>

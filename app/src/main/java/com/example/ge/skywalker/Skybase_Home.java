@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.example.ge.skywalker.Quiz.Quiz_Home_Activity;
+import com.example.ge.skywalker.UserLogin.Register;
 
 public class Skybase_Home extends AppCompatActivity {
 LinearLayout lyhome;
@@ -44,9 +45,12 @@ LinearLayout lyhome;
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId()== R.id.action_login){
-            //  Toast.makeText(this, "Add Click", Toast.LENGTH_SHORT).show();
-            //   Intent intent = new Intent(this, Ac_Headings.class);
-            //   startActivity(intent);
+
+            Intent intent = new Intent(this, Register.class);
+               startActivity(intent);
+        }else if(item.getItemId()==R.id.action_about){
+            Intent intent = new Intent(this, About.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
