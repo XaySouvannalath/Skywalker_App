@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent" android:padding="10dp"
+
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/editText"
+        android:layout_below="@+id/editText"
+        android:layout_marginTop="42dp"
+        android:ems="10"
+        android:hint="enter name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="enter last name"
+        android:inputType="textPersonName" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+
+    android:orientation="horizontal"
+    >
+    <Button
+        android:id="@+id/btaddtest"
+        android:layout_margin="2dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#3edd3b"
+        android:textColor="#ffffff"
+        android:text="add" />
+
+    <Button
+        android:id="@+id/btclear"
+        android:layout_width="wrap_content"
+        android:layout_margin="2dp"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:background="#2fc8e0"
+        android:text="clear" />
+    <Button
+        android:id="@+id/btcancel"
+        android:textColor="#ffffff"
+        android:layout_width="wrap_content"
+        android:layout_margin="2dp"
+        android:background="#ff3d3d"
+        android:layout_height="wrap_content"
+        android:text="cancel" />
+
+</LinearLayout>
+
+</LinearLayout>

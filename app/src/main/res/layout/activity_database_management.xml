@@ -1,0 +1,81 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:stretchColumns="1">
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:includeFontPadding="false"
+            android:onClick="gotocoursetype"
+
+            android:text="1. ຈັດການຂໍ້ມູນປະເພດຫຼັກສຸດ"
+
+            android:textAlignment="viewStart"
+            android:textSize="24sp" />
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:includeFontPadding="false"
+            android:textAlignment="viewStart"
+            android:text="2. ຈັດການຂໍ້ມູນຫຼັກສຸດ"
+            android:textSize="24sp" />
+        <Button
+            android:id="@+id/button10"
+            android:layout_width="match_parent"
+            android:textAlignment="viewStart"
+            android:onClick="gototest"
+            android:layout_height="80dp"
+            android:includeFontPadding="false"
+            android:text="3. ຈັດການຂໍ້ມູນບົດ"
+            android:textSize="24sp" />
+        <Button
+            android:id="@+id/button11"
+            android:textAlignment="viewStart"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:includeFontPadding="false"
+            android:text="4. ຈັດການຂໍ້ມູນຫົວຂໍ້ຍ່ອຍຂອງບົດ"
+            android:textSize="24sp" />
+        <Button
+            android:id="@+id/button12"
+            android:layout_width="match_parent"
+            android:textAlignment="viewStart"
+            android:layout_height="80dp"
+            android:includeFontPadding="false"
+            android:text="5. ຈັດການຂໍ້ມູນປະເພດຫຼັກສຸດ"
+            android:textSize="24sp" />
+        <Button
+            android:id="@+id/button13"
+            android:layout_width="match_parent"
+            android:textAlignment="viewStart"
+            android:layout_height="80dp"
+            android:includeFontPadding="false"
+            android:text="6. ຈັດການຂໍ້ມູນປະເພດຫຼັກສຸດ"
+            android:textSize="24sp" />
+        <Button
+            android:id="@+id/button14"
+            android:textAlignment="viewStart"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:includeFontPadding="false"
+            android:text="7. ຈັດການຂໍ້ມູນປະເພດຫຼັກສຸດ"
+            android:textSize="24sp" />
+        <Button
+            android:id="@+id/button15"
+            android:layout_width="match_parent"
+            android:textAlignment="viewStart"
+            android:layout_height="80dp"
+            android:includeFontPadding="false"
+            android:text="8. ຈັດການຂໍ້ມູນປະເພດຫຼັກສຸດ"
+            android:textSize="24sp" />
+    </TableLayout>
+</ScrollView>

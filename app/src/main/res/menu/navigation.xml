@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="ໜ້າຫຼັກ" />
+
+    <item
+        android:id="@+id/navigation_quiz"
+        android:icon="@mipmap/ic_spellcheck_black_24dp"
+        android:title="ຖາມ-ຕອບ" />
+
+    <item
+        android:id="@+id/navigation_chart"
+        android:icon="@mipmap/ic_equalizer_black_24dp"
+        android:title="ອັນດັບ" />
+    <item
+        android:id="@+id/navigation_community"
+        android:icon="@mipmap/ic_question_answer_black_24dp"
+        android:title="ຊຸມຊົນ" />
+</menu>
