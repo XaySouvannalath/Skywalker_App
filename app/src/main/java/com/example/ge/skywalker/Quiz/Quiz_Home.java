@@ -20,8 +20,8 @@ public class Quiz_Home extends AppCompatActivity {
     }
 
     public void gohome(MenuItem item) {
-        Intent i = new Intent(this, Skybase_Home.class);
-        startActivity(i);
+        Intent ii = new Intent(this, Skybase_Home.class);
+        startActivity(ii);
     }
 
     public void gosetting(MenuItem item) {
