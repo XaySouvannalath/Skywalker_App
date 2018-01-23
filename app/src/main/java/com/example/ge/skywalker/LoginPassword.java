@@ -71,6 +71,7 @@ public class LoginPassword extends AppCompatActivity {
                             if(dbpassword.equals(password)){
                                 //Toast.makeText(LoginPassword.this, "Pass", Toast.LENGTH_SHORT).show();
                                 StartApp(recieveUsername);
+                                globalusername = recieveUsername;
                             }else{
                                 aa.show();
                             }
@@ -94,6 +95,8 @@ public class LoginPassword extends AppCompatActivity {
 
         Intent i = new Intent(this, Skybase_Home.class);
         i.putExtra(globalusername, name);
+
+
         startActivity(i);
     }
 }

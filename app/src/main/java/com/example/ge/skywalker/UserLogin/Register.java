@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
@@ -78,18 +79,23 @@ public class Register extends AppCompatActivity {
         String id = refUser.push().getKey();
         String username = etusername.getText().toString();
         String password = etpassword.getText().toString();
-        vl_user vlUser = new vl_user(id, username,password);
-        refUser.child(username).setValue(vlUser).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                pgd.dismiss();
-                etconfirmpassword.setText("");
-                etpassword.setText("");
-                etusername.setText("");
-                etusername.requestFocus();
-                Toast.makeText(Register.this, "ລົງທະບຽນສໍາເລັດ", Toast.LENGTH_SHORT).show();
-            }
-        });
+        if(!TextUtils.isEmpty(username)){
+            vl_user vlUser = new vl_user(id, username,password);
+            refUser.child(username).setValue(vlUser).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    pgd.dismiss();
+                    etconfirmpassword.setText("");
+                    etpassword.setText("");
+                    etusername.setText("");
+                    etusername.requestFocus();
+                    Toast.makeText(Register.this, "ລົງທະບຽນສໍາເລັດ", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }else{
+            Toast.makeText(this, "ກະລຸນາປ້ອນຂໍ້ມູນ", Toast.LENGTH_SHORT).show();
+        }
+      
     }
 
     public void gologin(View view) {

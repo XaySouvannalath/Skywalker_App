@@ -1,14 +1,16 @@
 package com.example.ge.skywalker.Quiz;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.ge.skywalker.R;
+
 
 public class Quiz_Linux_Activity extends AppCompatActivity {
     private Quiz_Linux_Bank mQuestionLibrary = new Quiz_Linux_Bank();
@@ -23,7 +25,7 @@ public class Quiz_Linux_Activity extends AppCompatActivity {
     private String mAnswer;  // correct answer for question in mQuestionView
     private int mScore = 0;  // current total score
     private int mQuestionNumber = 0; // current question number
-
+    MediaPlayer ringcorrect, ringwrong;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,11 +37,15 @@ public class Quiz_Linux_Activity extends AppCompatActivity {
         mButtonChoice2 = (Button)findViewById(R.id.choice2);
         mButtonChoice3 = (Button)findViewById(R.id.choice3);
         mButtonChoice4 = (Button)findViewById(R.id.choice4);
+        ringcorrect = MediaPlayer.create(this,R.raw.correct);
+        ringwrong = MediaPlayer.create(this,R.raw.wrong);
 
         mQuestionLibrary.initQuestions(getApplicationContext());
         updateQuestion();
         // show current total score for the user
         updateScore(mScore);
+
+
     }
 
     private void updateQuestion(){
@@ -56,10 +62,24 @@ public class Quiz_Linux_Activity extends AppCompatActivity {
             mQuestionNumber++;
         }
         else {
-            Toast.makeText(Quiz_Linux_Activity.this, "It was the last question!", Toast.LENGTH_SHORT).show();
+           // Toast.makeText(Quiz_Linux_Activity.this, "It was the last question!", Toast.LENGTH_SHORT).show();
+          /*  new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent intent = new Intent(Quiz_Linux_Activity.this, Quiz_Score_Activity.class);
+                    intent.putExtra("score", mScore); // pass the current score to the second screen
+                    startActivity(intent);
+                }
+            }, 5000); */
+
             Intent intent = new Intent(Quiz_Linux_Activity.this, Quiz_Score_Activity.class);
             intent.putExtra("score", mScore); // pass the current score to the second screen
             startActivity(intent);
+
+
+
+
+
         }
     }
 
@@ -74,12 +94,58 @@ public class Quiz_Linux_Activity extends AppCompatActivity {
         // if the answer is correct, increase the score
         if (answer.getText().equals(mAnswer)){
             mScore = mScore + 1;
-            Toast.makeText(Quiz_Linux_Activity.this, "Correct!", Toast.LENGTH_SHORT).show();
-        }else
-            Toast.makeText(Quiz_Linux_Activity.this, "Wrong!", Toast.LENGTH_SHORT).show();
+            ringcorrect.start();
+          //  Toast.makeText(Quiz_Linux_Activity.this, "Correct!", Toast.LENGTH_SHORT).show();
+            setColorforChoiceButton();
+        }else{
+            ringwrong.start();
+         //   Toast.makeText(Quiz_Linux_Activity.this, "Wrong!", Toast.LENGTH_SHORT).show();
+           setColorforChoiceButton();
+
+        }
         // show current total score for the user
         updateScore(mScore);
         // once user answer the question, we move on to the next one, if any
-        updateQuestion();
+
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Toast.makeText(Quiz_Linux_Activity.this, "delay 5 seconds", Toast.LENGTH_SHORT).show();
+                updateQuestion();
+                mButtonChoice1.setBackgroundResource(R.drawable.back);
+                mButtonChoice2.setBackgroundResource(R.drawable.back);
+                mButtonChoice3.setBackgroundResource(R.drawable.back);
+                mButtonChoice4.setBackgroundResource(R.drawable.back);
+            }
+        },3000);
+
+    }
+    public void setColorforChoiceButton(){
+        if(!mButtonChoice1.getText().toString().equals(mAnswer)){
+            mButtonChoice1.setBackgroundResource(R.drawable.backofwrong);
+        }
+        if(!mButtonChoice2.getText().toString().equals(mAnswer)){
+            mButtonChoice2.setBackgroundResource(R.drawable.backofwrong);
+        }
+        if(!mButtonChoice3.getText().toString().equals(mAnswer)){
+            mButtonChoice3.setBackgroundResource(R.drawable.backofwrong);
+        }
+        if(!mButtonChoice4.getText().toString().equals(mAnswer)){
+            mButtonChoice4.setBackgroundResource(R.drawable.backofwrong);
+        }
+        if(mButtonChoice1.getText().toString().equals(mAnswer)){
+            mButtonChoice1.setBackgroundResource(R.drawable.backofcorrect);
+        }
+        if(mButtonChoice2.getText().toString().equals(mAnswer)){
+            mButtonChoice2.setBackgroundResource(R.drawable.backofcorrect);
+        }
+        if(mButtonChoice3.getText().toString().equals(mAnswer)){
+            mButtonChoice3.setBackgroundResource(R.drawable.backofcorrect);
+        }
+        if(mButtonChoice4.getText().toString().equals(mAnswer)){
+            mButtonChoice4.setBackgroundResource(R.drawable.backofcorrect);
+        }
     }
 }
