@@ -1,4 +1,4 @@
-package com.example.ge.skywalker;
+package com.example.ge.skywalker.UserLogin;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,6 +15,8 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.ge.skywalker.R;
+import com.example.ge.skywalker.Skybase_Home;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

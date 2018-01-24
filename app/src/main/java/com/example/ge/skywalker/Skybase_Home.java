@@ -11,10 +11,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ge.skywalker.Chart.Chart_Activity;
+import com.example.ge.skywalker.Community.Community_Act;
 import com.example.ge.skywalker.Quiz.Quiz_Home_Activity;
 import com.example.ge.skywalker.UserLogin.Register;
 
-import static com.example.ge.skywalker.LoginPassword.globalusername;
+import static com.example.ge.skywalker.UserLogin.LoginPassword.globalusername;
 
 public class Skybase_Home extends AppCompatActivity {
 LinearLayout lyhome;
@@ -108,5 +110,15 @@ LinearLayout lyhome;
     public void gotochart(View view) {
         MediaPlayer ring= MediaPlayer.create(Skybase_Home.this,R.raw.correct);
         ring.start();
+    }
+
+    public void gotochartac(View view) {
+        Intent i = new Intent(this, Chart_Activity.class);
+        startActivity(i);
+    }
+
+    public void gotocommunity(View view) {
+        Intent i = new Intent(this, Community_Act.class);
+        startActivity(i);
     }
 }

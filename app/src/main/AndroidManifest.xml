@@ -83,10 +83,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginPassword"
-            android:theme="@style/HomeTheme"
-            />
-        <activity android:name=".About"
+        <activity
+            android:name=".UserLogin.LoginPassword"
+            android:theme="@style/HomeTheme" />
+        <activity
+            android:name=".About"
+            android:theme="@style/HomeTheme" />
+        <activity android:name=".Chart.testtt" />
+        <activity
+            android:name=".Chart.Chart_Activity"
+            android:theme="@style/HomeTheme" />
+        <activity
+            android:name=".Community.Community_Activity"
+            android:theme="@style/HomeTheme" />
+        <activity android:name=".Community.Community_Act"
             android:theme="@style/HomeTheme"
             ></activity>
     </application>

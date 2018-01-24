@@ -215,18 +215,19 @@ Toolbar toolbar;
             public void onDataChange(DataSnapshot dataSnapshot) {
                 valueCourse.clear();
                 for(DataSnapshot postSnapshot : dataSnapshot.getChildren()){
-                    ///  TestVal tests = postSnapshot.getValue(TestVal.class);
                     vl_course tess = postSnapshot.getValue(vl_course.class);
 
                     valueCourse.add(tess);
                 }
+             //   Toast.makeText(Ac_Courses.this, valueCourse.toString(), Toast.LENGTH_SHORT).show();
                 List_Courses testList = new List_Courses(Ac_Courses.this, valueCourse);
+
+              //  vl_course vlCourse = valueCourse.get(1);
+              //  Toast.makeText(Ac_Courses.this,  vlCourse.getCourseName(), Toast.LENGTH_SHORT).show();
                 listCourse.setAdapter(testList);
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
             }
         });
     }

@@ -4,24 +4,37 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.ge.skywalker.Chart.vl_score;
 import com.example.ge.skywalker.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.example.ge.skywalker.UserLogin.LoginPassword.globalusername;
 
 
 public class Quiz_Linux_Activity extends AppCompatActivity {
     private Quiz_Linux_Bank mQuestionLibrary = new Quiz_Linux_Bank();
-
+    DatabaseReference refScores,refScoresNewSet, refTestShowScore;
     private TextView mScoreView;   // view for current total score
     private TextView mQuestionView;  //current question to answer
     private Button mButtonChoice1; // multiple choice 1 for mQuestionView
     private Button mButtonChoice2; // multiple choice 2 for mQuestionView
     private Button mButtonChoice3; // multiple choice 3 for mQuestionView
     private Button mButtonChoice4; // multiple choice 4 for mQuestionView
-
+List<vl_score> valueScore;
+    AlertDialog.Builder aa;
     private String mAnswer;  // correct answer for question in mQuestionView
     private int mScore = 0;  // current total score
     private int mQuestionNumber = 0; // current question number
@@ -38,8 +51,10 @@ public class Quiz_Linux_Activity extends AppCompatActivity {
         mButtonChoice3 = (Button)findViewById(R.id.choice3);
         mButtonChoice4 = (Button)findViewById(R.id.choice4);
         ringcorrect = MediaPlayer.create(this,R.raw.correct);
+      aa = new AlertDialog.Builder(getApplicationContext());
+        valueScore = new ArrayList<>();
         ringwrong = MediaPlayer.create(this,R.raw.wrong);
-
+//UploadScore(1);
         mQuestionLibrary.initQuestions(getApplicationContext());
         updateQuestion();
         // show current total score for the user
@@ -97,6 +112,7 @@ public class Quiz_Linux_Activity extends AppCompatActivity {
             ringcorrect.start();
           //  Toast.makeText(Quiz_Linux_Activity.this, "Correct!", Toast.LENGTH_SHORT).show();
             setColorforChoiceButton();
+            UploadScore(1);
         }else{
             ringwrong.start();
          //   Toast.makeText(Quiz_Linux_Activity.this, "Wrong!", Toast.LENGTH_SHORT).show();
@@ -137,15 +153,43 @@ public class Quiz_Linux_Activity extends AppCompatActivity {
         }
         if(mButtonChoice1.getText().toString().equals(mAnswer)){
             mButtonChoice1.setBackgroundResource(R.drawable.backofcorrect);
+          //  UploadScore(1);
         }
         if(mButtonChoice2.getText().toString().equals(mAnswer)){
             mButtonChoice2.setBackgroundResource(R.drawable.backofcorrect);
+          //  UploadScore(1);
         }
         if(mButtonChoice3.getText().toString().equals(mAnswer)){
             mButtonChoice3.setBackgroundResource(R.drawable.backofcorrect);
+           // UploadScore(1);
         }
         if(mButtonChoice4.getText().toString().equals(mAnswer)){
             mButtonChoice4.setBackgroundResource(R.drawable.backofcorrect);
+           // UploadScore(1);
         }
     }
+    public void UploadScore(final int newscore){
+    refScores = FirebaseDatabase.getInstance().getReference("Scores").child(globalusername).child("score");
+        refScoresNewSet = FirebaseDatabase.getInstance().getReference("Scores");
+        final String usernamee = globalusername;
+        refScores.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(!dataSnapshot.exists()){
+                    vl_score vlScore =new vl_score(usernamee, newscore);
+                    refScoresNewSet.child(usernamee).setValue(vlScore);
+                }else{
+                    int  oldscore = Integer.parseInt(dataSnapshot.getValue().toString());
+                    int  newScore;
+                    newScore = oldscore + newscore;
+                    vl_score vlScore =new vl_score(usernamee, newScore);
+                    refScoresNewSet.child(usernamee).setValue(vlScore);
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+    }
+
 }

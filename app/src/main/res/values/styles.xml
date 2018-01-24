@@ -21,18 +21,26 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
     <style name="coursesTheme" parent="Theme.AppCompat.Light.NoActionBar">
 
     </style>
+
     <style name="chapterTheme" parent="Theme.AppCompat.Light.NoActionBar">
 
     </style>
+
     <style name="headingTheme" parent="Theme.AppCompat.Light.NoActionBar">
 
-        <item name = "android:windowNoTitle">true</item>
+        <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>
     </style>
+
     <style name="HomeTheme" parent="Theme.AppCompat.Light.DarkActionBar">
 
     </style>
+
+    <style name="chapterTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="chapterTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
